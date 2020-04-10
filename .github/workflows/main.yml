@@ -1,0 +1,14 @@
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: macos-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: run test
+      run: make tests
+      working-directory: ./testing
