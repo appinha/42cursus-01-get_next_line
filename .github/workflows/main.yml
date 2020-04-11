@@ -9,6 +9,20 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: run test
+    - name: run my testing
       run: make tests
       working-directory: ./testing
+    - name: run 1-mrjvs_gnl_test
+      run: make
+      working-directory: ./test_others/1-mrjvs_gnl_test
+    - name: run 2-Hellio404_gnl_tester
+      run: bash run.sh
+      working-directory: ./test_others/2-Hellio404_gnl_tester
+    - name: run 3-gnl_unit_tests
+      run:
+        sh run_tests.sh
+        sh run_tests.sh bonus
+      working-directory: ./test_others/3-gnl_unit_tests
+    - name: run 4-GNL_lover
+      run: sh GNL_lover.sh
+      working-directory: ./test_others/4-GNL_lover
