@@ -6,7 +6,7 @@
 /*   By: apuchill <apuchill@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/29 20:01:42 by apuchill          #+#    #+#             */
-/*   Updated: 2020/03/23 16:56:26 by apuchill         ###   ########.fr       */
+/*   Updated: 2020/04/13 08:37:11 by apuchill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ static int		ft_buff2line(char **line, char **buff)
 
 int				get_next_line(int fd, char **line)
 {
-	static char	*buff[FOPEN_MAX];
+	static char	*buff[OPEN_MAX];
 	int			read_ret;
 	int			status;
 
