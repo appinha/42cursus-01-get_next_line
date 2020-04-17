@@ -6,7 +6,7 @@
 /*   By: apuchill <apuchill@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/29 20:01:42 by apuchill          #+#    #+#             */
-/*   Updated: 2020/04/13 08:37:11 by apuchill         ###   ########.fr       */
+/*   Updated: 2020/04/17 20:12:50 by apuchill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,28 +32,38 @@ static void		ft_free_nl(char **ptr)
 	*ptr = NULL;
 }
 
+static size_t	ft_copy_buff(char **buff, long long i)
+{
+	char	*tmp;
+
+	tmp = ft_strdup(*buff);
+	ft_free_nl(&*buff);
+	*buff = ft_substr(tmp, i + 1 , (ft_strlen(tmp) - i - 1));
+}
+
 static int		ft_buff2line(char **line, char **buff)
 {
-	long long	i_pos;
-	char		*tmp;
+	long long	i;
+	long long	j;
+	char		tmp[ARG_MAX];
 
-	tmp = ft_strjoin(*line, *buff);
-	ft_free_nl(&*line);
-	ft_free_nl(&*buff);
-	if ((i_pos = ft_strchr_i(tmp, '\n')) > -1)
+	while (*line[i] != '\0')
 	{
-		*line = ft_substr(tmp, 0, i_pos);
-		if((ft_strlen(tmp) - i_pos) > 1)
-			*buff = ft_substr(tmp, i_pos + 1 , (ft_strlen(tmp) - i_pos - 1));
-		ft_free_nl(&tmp);
+		tmp[i] = *line[i];
+		i++;
+	}
+	ft_free_nl(&*line);
+	while (*buff[j] != '\n' && *buff[j] != '\0')
+		tmp[i++] = *buff[j++];
+	tmp[i] = 0;
+	*line = ft_strdup(tmp);
+	if (buff[j] == '\n' && buff[j + 1] != '\0')
+	{
+		ft_copy_buff(&*buff, j);
 		return (1);
 	}
-	else
-	{
-		*line = ft_strdup(tmp);
-		ft_free_nl(&tmp);
-		return (0);
-	}
+	ft_free_nl(&*buff);
+	return (0);
 }
 
 int				get_next_line(int fd, char **line)
