@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: apuchill <apuchill@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/08 13:24:19 by apuchill          #+#    #+#             */
-/*   Updated: 2020/03/08 13:24:19 by apuchill         ###   ########.fr       */
+/*   Created: 2020/04/18 20:31:54 by apuchill          #+#    #+#             */
+/*   Updated: 2020/04/18 20:31:54 by apuchill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ char	*ft_strjoin(char const *s1, char const *s2);
 /*
 ** APAGAR
 */
-/*
+
 # define ARG_MAX			sysconf(_SC_ARG_MAX)
 # define OPEN_MAX			FOPEN_MAX
 # define MAIN(string)		"\033[1m\033[38;5;199m" string "\033[0m"
@@ -45,5 +45,5 @@ char	*ft_strjoin(char const *s1, char const *s2);
 # define HEADER_1(string)	"\033[38;5;43m" string "\033[0m"
 # define HEADER_2(string)	"\033[38;5;75m" string "\033[0m"
 # define HIGHLIGHT(string)	"\033[38;5;191m" string "\033[0m"
-*/
+
 #endif

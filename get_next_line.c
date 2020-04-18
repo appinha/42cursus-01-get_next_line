@@ -6,7 +6,7 @@
 /*   By: apuchill <apuchill@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/29 20:01:42 by apuchill          #+#    #+#             */
-/*   Updated: 2020/04/18 19:08:16 by apuchill         ###   ########.fr       */
+/*   Updated: 2020/04/18 20:37:09 by apuchill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static void		ft_free_null(char **ptr)
 	*ptr = NULL;
 }
 
-static void	ft_cpy_exc_buff(char **buff, long long j)
+static void		ft_cpy_exc_buff(char **buff, long long j)
 {
 	long long	i;
 	char		tmp[ARG_MAX];
@@ -76,10 +76,11 @@ int				get_next_line(int fd, char **line)
 		status = 0;
 		while (status == 0)
 		{
-			if (buff[fd] == NULL && (buff[fd] = ft_calloc(BUFFER_SIZE + 1, 1)))
+			if (buff[fd] == NULL && (buff[fd] = malloc(BUFFER_SIZE + 1)))
 				read_ret = read(fd, buff[fd], BUFFER_SIZE);
 			else
 				read_ret = ft_strlen(buff[fd]);
+			buff[fd][read_ret] = '\0';
 			status = ft_buff2line(&*line, &buff[fd]);
 			if (read_ret == 0)
 				return (EOF_RCHD);

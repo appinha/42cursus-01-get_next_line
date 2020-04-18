@@ -1,17 +1,17 @@
 # **************************************************************************** #
 #                                                                              #
-#                                                         ::::::::             #
-#    Makefile                                           :+:    :+:             #
-#                                                      +:+                     #
-#    By: jvan-sni <jvan-sni@student.codam.nl>         +#+                      #
-#                                                    +#+                       #
-#    Created: 2019/10/28 16:59:45 by jvan-sni       #+#    #+#                 #
-#    Updated: 2019/11/20 17:56:47 by jvan-sni      ########   odam.nl          #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: apuchill <apuchill@student.42sp.org.br>    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2019/10/28 16:59:45 by jvan-sni          #+#    #+#              #
+#    Updated: 2020/04/11 12:55:40 by apuchill         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # edit this to your get_next_line folder
-GET_NEXT_LINE_FOLDER = ~/42/get_next_line/
+GET_NEXT_LINE_FOLDER = ../../
 
 # dont touch this plz
 TESTS = 1 2 5 6 20 25 1024 5000 10000000
