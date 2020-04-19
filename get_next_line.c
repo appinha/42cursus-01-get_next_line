@@ -6,7 +6,7 @@
 /*   By: apuchill <apuchill@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/29 20:01:42 by apuchill          #+#    #+#             */
-/*   Updated: 2020/04/18 21:27:00 by apuchill         ###   ########.fr       */
+/*   Updated: 2020/04/19 17:32:20 by apuchill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ static int		ft_buff2line(char **line, char **buff)
 
 	i = 0;
 	j = 0;
-	while (line[0] != NULL && line[0][i] != '\0')
+	while (line[0][i] != '\0')
 	{
 		tmp[i] = line[0][i];
 		i++;
@@ -54,7 +54,7 @@ static int		ft_buff2line(char **line, char **buff)
 	ft_free_null(&*line);
 	while (buff[0][j] != '\0' && buff[0][j] != '\n')
 		tmp[i++] = buff[0][j++];
-	tmp[i] = 0;
+	tmp[i] = '\0';
 	*line = ft_strdup(tmp);
 	if (buff[0][j] == '\n')
 	{
@@ -68,6 +68,7 @@ static int		ft_buff2line(char **line, char **buff)
 int				get_next_line(int fd, char **line)
 {
 	static char	*buff[OPEN_MAX];
+	char		tmp[ARG_MAX];
 	int			read_ret;
 	int			status;
 
@@ -76,11 +77,11 @@ int				get_next_line(int fd, char **line)
 		status = 0;
 		while (status == 0)
 		{
-			if (buff[fd] == NULL && (buff[fd] = malloc(BUFFER_SIZE + 1)))
-				read_ret = read(fd, buff[fd], BUFFER_SIZE);
-			else
+			if (buff[fd] == NULL && (read_ret = read(fd, tmp, BUFFER_SIZE)) >= 0
+				&& (tmp[read_ret] = '\0') == 0)
+				buff[fd] = ft_strdup(tmp);
+			if (buff[fd] != NULL)
 				read_ret = ft_strlen(buff[fd]);
-			buff[fd][read_ret] = '\0';
 			status = ft_buff2line(&*line, &buff[fd]);
 			if (read_ret == 0)
 				return (EOF_RCHD);

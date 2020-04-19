@@ -34,4 +34,16 @@ char	*ft_strdup(const char *s1);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strjoin(char const *s1, char const *s2);
 
+/*
+** APAGAR
+*/
+
+# define ARG_MAX			sysconf(_SC_ARG_MAX)
+# define OPEN_MAX			FOPEN_MAX
+# define MAIN(string)		"\033[1m\033[38;5;199m" string "\033[0m"
+# define MAIN_1(string)		"\033[35m" string "\033[0m"
+# define HEADER_1(string)	"\033[38;5;43m" string "\033[0m"
+# define HEADER_2(string)	"\033[38;5;75m" string "\033[0m"
+# define HIGHLIGHT(string)	"\033[38;5;191m" string "\033[0m"
+
 #endif
