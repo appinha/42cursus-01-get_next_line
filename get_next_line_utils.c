@@ -6,7 +6,7 @@
 /*   By: apuchill <apuchill@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/29 20:01:39 by apuchill          #+#    #+#             */
-/*   Updated: 2020/04/18 20:33:00 by apuchill         ###   ########.fr       */
+/*   Updated: 2020/04/19 19:10:20 by apuchill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,24 +20,6 @@ size_t	ft_strlen(const char *s)
 	while (s[l] != 0)
 		l++;
 	return (l);
-}
-
-void	*ft_calloc(size_t count, size_t size)
-{
-	size_t	tot_size;
-	size_t	i;
-	void	*dst;
-
-	tot_size = size * count;
-	if (!(dst = malloc(tot_size)))
-		return (0);
-	i = 0;
-	while (i < tot_size)
-	{
-		((unsigned char *)dst)[i] = 0;
-		i++;
-	}
-	return (dst);
 }
 
 char	*ft_strdup(const char *s1)

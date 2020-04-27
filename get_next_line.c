@@ -6,7 +6,7 @@
 /*   By: apuchill <apuchill@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/29 20:01:42 by apuchill          #+#    #+#             */
-/*   Updated: 2020/04/19 17:32:20 by apuchill         ###   ########.fr       */
+/*   Updated: 2020/04/19 19:47:11 by apuchill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,26 +69,25 @@ int				get_next_line(int fd, char **line)
 {
 	static char	*buff[OPEN_MAX];
 	char		tmp[ARG_MAX];
-	int			read_ret;
-	int			status;
+	int			ret[2];
 
 	if (fd >= 0 && line && BUFFER_SIZE > 0 && (*line = ft_strdup("")))
 	{
-		status = 0;
-		while (status == 0)
+		ret[0] = 0;
+		while (ret[0] == 0)
 		{
-			if (buff[fd] == NULL && (read_ret = read(fd, tmp, BUFFER_SIZE)) >= 0
-				&& (tmp[read_ret] = '\0') == 0)
+			if (buff[fd] == NULL && (ret[1] = read(fd, tmp, BUFFER_SIZE)) >= 0
+				&& (tmp[ret[1]] = '\0') == 0)
 				buff[fd] = ft_strdup(tmp);
 			if (buff[fd] != NULL)
-				read_ret = ft_strlen(buff[fd]);
-			status = ft_buff2line(&*line, &buff[fd]);
-			if (read_ret == 0)
-				return (EOF_RCHD);
-			if (read_ret < 0)
+				ret[1] = ft_strlen(buff[fd]);
+			if (ret[1] < 0)
 				break ;
+			ret[0] = ft_buff2line(&*line, &buff[fd]);
+			if (ret[1] == 0)
+				return (EOF_RCHD);
 		}
-		if (status == 1)
+		if (ret[0] == 1)
 			return (READL_OK);
 	}
 	ft_free_null(&*line);
