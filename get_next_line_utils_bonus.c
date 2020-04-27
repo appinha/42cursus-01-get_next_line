@@ -1,33 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: apuchill <apuchill@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/04/18 20:31:54 by apuchill          #+#    #+#             */
-/*   Updated: 2020/04/27 17:27:14 by apuchill         ###   ########.fr       */
+/*   Created: 2020/02/29 20:01:39 by apuchill          #+#    #+#             */
+/*   Updated: 2020/04/27 17:25:01 by apuchill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "get_next_line_bonus.h"
 
-# include <unistd.h>
-# include <stdlib.h>
-# include <limits.h>
+size_t	ft_strlen(const char *s)
+{
+	size_t l;
 
-# define READL_OK 1
-# define EOF_RCHD 0
-# define ERR_HPND -1
+	l = 0;
+	while (s[l] != 0)
+		l++;
+	return (l);
+}
 
-int		get_next_line(int fd, char **line);
+char	*ft_strdup(const char *s1)
+{
+	char	*s2;
+	size_t	size;
+	size_t	i;
 
-/*
-** Utils
-*/
-
-size_t	ft_strlen(const char *s);
-char	*ft_strdup(const char *s1);
-
-#endif
+	size = ft_strlen(s1) + 1;
+	if (!(s2 = (char *)malloc(size)))
+		return (0);
+	i = 0;
+	while (i < size)
+	{
+		((unsigned char *)s2)[i] = ((unsigned char *)s1)[i];
+		i++;
+	}
+	return (s2);
+}
