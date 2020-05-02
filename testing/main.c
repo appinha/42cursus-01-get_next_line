@@ -6,7 +6,7 @@
 /*   By: apuchill <apuchill@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/06 17:31:30 by apuchill          #+#    #+#             */
-/*   Updated: 2020/04/06 17:31:38 by apuchill         ###   ########.fr       */
+/*   Updated: 2020/05/02 13:44:16 by apuchill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,26 +45,21 @@ void	test(int fd)
 int		main(void)
 {
 	printf(MAIN("=== • Program started • ===\n"));
-/*
-	printf(MAIN_1("=== #2 ===\n"));
-	int	fd2;
-	fd2 = open("txt_files/2.txt", O_RDONLY);
-	test(fd2);
 
 	printf(MAIN_1("=== empty file ===\n"));
 	int	fda;
 	fda = open("txt_files/t_empty.txt", O_RDONLY);
 	test(fda);
-*/
+
 	printf(MAIN_1("=== \\n file ===\n"));
 	int	fdb;
 	fdb = open("txt_files/t_n.txt", O_RDONLY);
 	test(fdb);
-/*
+
 	printf(MAIN_1("=== Le Petit Prince ===\n"));
 	int	fdc;
 	fdc = open("txt_files/t_ptiprinc.txt", O_RDONLY);
 	test(fdc);
-*/
+
 	printf(MAIN("=== • Program ended • ===\n\n"));
 }
