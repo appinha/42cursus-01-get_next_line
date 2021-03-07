@@ -6,11 +6,11 @@
 #    By: apuchill <apuchill@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/24 20:15:20 by apuchill          #+#    #+#              #
-#    Updated: 2020/05/02 13:47:37 by apuchill         ###   ########.fr        #
+#    Updated: 2021/03/07 19:24:20 by apuchill         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-GNL_FOLDER	= ../
+GNL_FOLDER	= ../get_next_line
 BUF_OPT	= -D BUFFER_SIZE=
 BUF_SZ	= 20
 BUF_SZS	= 1 2 5 6 20 25 1024 5000 9999 10000000
